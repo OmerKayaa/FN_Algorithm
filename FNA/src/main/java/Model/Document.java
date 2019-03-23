@@ -1,9 +1,10 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Document
+public class Document implements Iterable<Term>
 {
     private List<Term> Terms = new ArrayList<>();
     private final String Name;
@@ -26,5 +27,11 @@ public class Document
     public void SubTerm(Term term)
     {
         Terms.remove(term);
+    }
+
+    @Override
+    public Iterator iterator()
+    {
+        return Terms.iterator();
     }
 }
