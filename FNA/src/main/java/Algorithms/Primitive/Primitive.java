@@ -18,25 +18,53 @@ public class Primitive extends AlgorithmsAbs
     @Override
     public List<Term> IntersectDocuments()
     {
-        return new ArrayList<>();
+        List<Term> list = new ArrayList<>();
+        for(Term t:doc2)
+        {
+            if(Contains(t))
+                list.add(t);
+        }
+        return list;
     }
 
     @Override
     public List<Term> DisjunctDocuments()
     {
-        return new ArrayList<>();
+        List<Term> l = new ArrayList<>(AddDocuments());
+        l.removeAll(IntersectDocuments());
+        return l;
     }
 
     @Override
     public List<Term> AddDocuments()
     {
-        return new ArrayList<>();
+        List<Term> list = new ArrayList<>();
+        for(Term t:doc2)
+        {
+            if(!Contains(t))
+                list.add(t);
+        }
+        for(Term t:doc1)
+        {
+            list.add(t);
+        }
+        return list;
     }
 
     @Override
     public List<Term> SubtractDocuments()
     {
-        return new ArrayList<>();
+        List<Term> list = new ArrayList<>();
+        for(Term t:doc1)
+        {
+            list.add(t);
+        }
+        for(Term t:doc2)
+        {
+            if(list.contains(t))
+                list.remove(t);
+        }
+        return list;
     }
 
     @Override
