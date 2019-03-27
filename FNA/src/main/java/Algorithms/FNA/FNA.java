@@ -28,18 +28,24 @@ public class FNA extends AlgorithmsAbs
     @Override
     public List<Term> DisjunctDocuments()
     {
-        return Control.getTerms(Control.DisJoint(k1,k2),model.TermDictionary);
+        return Control.getTerms(Control.disjunct(k1,k2),model.TermDictionary);
     }
 
     @Override
     public List<Term> AddDocuments()
     {
-        return Control.getTerms(k1.multiply(k2),model.TermDictionary);
+        return Control.getTerms(Control.add(k1,k2),model.TermDictionary);
     }
 
     @Override
     public List<Term> SubtractDocuments()
     {
-        return Control.getTerms(k1.divideAndRemainder(k2)[1],model.TermDictionary);
+        return Control.getTerms(Control.sub(k1,k2),model.TermDictionary);
+    }
+
+    @Override
+    public boolean Contains(Term t)
+    {
+        return k1.divideAndRemainder(Control.returnKey(t,model.TermDictionary))[1].equals(BigInteger.ZERO);
     }
 }

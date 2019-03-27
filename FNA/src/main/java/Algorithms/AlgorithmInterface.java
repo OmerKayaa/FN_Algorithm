@@ -13,5 +13,5 @@ public interface AlgorithmInterface
     List<Term> DisjunctDocuments();
     List<Term> AddDocuments();
     List<Term> SubtractDocuments();
-
+    boolean Contains(Term t);
 }

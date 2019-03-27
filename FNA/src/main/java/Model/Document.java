@@ -24,6 +24,14 @@ public class Document implements Iterable<Term>
         Terms.add(term);
     }
 
+    public void AddAll(Term... terms)
+    {
+        for (Term t: terms)
+        {
+            AddTerm(t);
+        }
+    }
+
     public void SubTerm(Term term)
     {
         Terms.remove(term);

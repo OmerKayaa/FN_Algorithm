@@ -60,4 +60,17 @@ public interface OperationsInterface
         Instant end = Instant.now();
         return Duration.between(start,end);
     }
+
+    static boolean ContainsTerm(AlgorithmInterface algorithm,Term term)
+    {
+        return algorithm.Contains(term);
+    }
+
+    static Duration ContainsTermTime(AlgorithmInterface algorithm,Term term)
+    {
+        Instant start = Instant.now();
+        algorithm.Contains(term);
+        Instant end = Instant.now();
+        return Duration.between(start,end);
+    }
 }

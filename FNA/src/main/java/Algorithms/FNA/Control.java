@@ -18,12 +18,22 @@ public class Control
             return EuclideanGCD (b, a.divideAndRemainder(b)[1]);
     }
 
-    static BigInteger DisJoint (BigInteger a, BigInteger b)
+    static BigInteger disjunct(BigInteger a, BigInteger b)
     {
         BigInteger gcd = EuclideanGCD(a,b);
         a = a.divide(gcd);
         b = b.divide(gcd);
         return a.multiply(b);
+    }
+
+    static BigInteger add(BigInteger a,BigInteger b)
+    {
+        return a.multiply(b).divide(EuclideanGCD(a,b));
+    }
+
+    static BigInteger sub(BigInteger a,BigInteger b)
+    {
+        return a.divide(EuclideanGCD(a,b));
     }
 
     /**
