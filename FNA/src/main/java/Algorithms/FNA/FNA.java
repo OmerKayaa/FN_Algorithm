@@ -1,38 +1,45 @@
 package Algorithms.FNA;
 
-import Algorithms.AlgorithmInterface;
+import Algorithms.AlgorithmsAbs;
 import Model.Document;
 import Model.Term;
 
-public class FNA implements AlgorithmInterface
+import java.math.BigInteger;
+import java.util.List;
+
+public class FNA extends AlgorithmsAbs
 {
-    @Override
-    public void AddDocument(Document doc)
-    {
+    private final FNAModel model = new FNAModel();
+    private final BigInteger k1,k2;
 
+    public FNA(Document doc1,Document doc2)
+    {
+        super.setUp(doc1,doc2);
+        k1 = Control.returnKey(doc1,model);
+        k2 = Control.returnKey(doc2,model);
     }
 
     @Override
-    public Term[] IntersectDocuments(Document... doc)
+    public List<Term> IntersectDocuments()
     {
-        return new Term[0];
+        return Control.getTerms(Control.EuclideanGCD(k1,k2),model.TermDictionary);
     }
 
     @Override
-    public Term[] DisjointDocuments(Document... doc)
+    public List<Term> DisjunctDocuments()
     {
-        return new Term[0];
+        return Control.getTerms(Control.DisJoint(k1,k2),model.TermDictionary);
     }
 
     @Override
-    public Term[] AddDocuments(Document... doc)
+    public List<Term> AddDocuments()
     {
-        return new Term[0];
+        return Control.getTerms(k1.multiply(k2),model.TermDictionary);
     }
 
     @Override
-    public Term[] SubtractDocuments(Document... doc)
+    public List<Term> SubtractDocuments()
     {
-        return new Term[0];
+        return Control.getTerms(k1.divideAndRemainder(k2)[1],model.TermDictionary);
     }
 }

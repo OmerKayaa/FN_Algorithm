@@ -3,13 +3,15 @@ package Algorithms;
 import Model.Document;
 import Model.Term;
 
+import java.util.List;
+
 public interface AlgorithmInterface
 {
-    void AddDocument(Document doc);
+    void setUp(Document doc1,Document doc2);
 
-    Term[] IntersectDocuments   (Document... doc);
-    Term[] DisjointDocuments    (Document... doc);
-    Term[] AddDocuments         (Document... doc);
-    Term[] SubtractDocuments    (Document... doc);
+    List<Term> IntersectDocuments();
+    List<Term> DisjunctDocuments();
+    List<Term> AddDocuments();
+    List<Term> SubtractDocuments();
 
 }

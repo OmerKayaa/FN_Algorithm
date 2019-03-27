@@ -9,7 +9,7 @@ public class Term<T>
         this.term = term;
     }
 
-    T getTerm()
+    public T getTerm()
     {
         return term;
     }

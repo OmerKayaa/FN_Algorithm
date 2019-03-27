@@ -1,62 +1,62 @@
 package Control;
 
 import Algorithms.AlgorithmInterface;
-import Model.Document;
 import Model.Term;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 public interface OperationsInterface
 {
-    static Term[] IntersectDocuments(AlgorithmInterface algorithm,Document... doc)
+    static List<Term> IntersectDocuments(AlgorithmInterface algorithm)
     {
-        return algorithm.IntersectDocuments(doc);
+        return algorithm.IntersectDocuments();
     }
 
-    static Duration IntersectDocumentsTime(AlgorithmInterface algorithm, Document... doc)
+    static Duration IntersectDocumentsTime(AlgorithmInterface algorithm)
     {
         Instant start = Instant.now();
-        algorithm.IntersectDocuments(doc);
+        algorithm.IntersectDocuments();
         Instant end = Instant.now();
         return Duration.between(start,end);
     }
 
-    static Term[] DisjointDocuments(AlgorithmInterface algorithm,Document... doc)
+    static List<Term> DisjunctDocuments(AlgorithmInterface algorithm)
     {
-        return algorithm.DisjointDocuments(doc);
+        return algorithm.DisjunctDocuments();
     }
 
-    static Duration DisjointDocumentsTime(AlgorithmInterface algorithm,Document... doc)
+    static Duration DisjointDocumentsTime(AlgorithmInterface algorithm)
     {
         Instant start = Instant.now();
-        algorithm.DisjointDocuments(doc);
+        algorithm.DisjunctDocuments();
         Instant end = Instant.now();
         return Duration.between(start,end);
     }
 
-    static Term[] AddDocuments(AlgorithmInterface algorithm,Document... doc)
+    static List<Term> AddDocuments(AlgorithmInterface algorithm)
     {
-        return algorithm.AddDocuments(doc);
+        return algorithm.AddDocuments();
     }
 
-    static Duration AddDocumentsTime(AlgorithmInterface algorithm ,Document... doc)
+    static Duration AddDocumentsTime(AlgorithmInterface algorithm)
     {
         Instant start = Instant.now();
-        algorithm.AddDocuments(doc);
+        algorithm.AddDocuments();
         Instant end = Instant.now();
         return Duration.between(start,end);
     }
 
-    static Term[] SubtractDocuments(AlgorithmInterface algorithm, Document... doc)
+    static List<Term> SubtractDocuments(AlgorithmInterface algorithm)
     {
         return algorithm.SubtractDocuments();
     }
 
-    static Duration SubtractDocumentsTime(AlgorithmInterface algorithm , Document... doc)
+    static Duration SubtractDocumentsTime(AlgorithmInterface algorithm)
     {
         Instant start = Instant.now();
-        algorithm.SubtractDocuments(doc);
+        algorithm.SubtractDocuments();
         Instant end = Instant.now();
         return Duration.between(start,end);
     }
