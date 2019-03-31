@@ -105,6 +105,7 @@ public class TestOperations
             Assert.assertTrue(mes + Al.getClass(),OperationsInterface.ContainsTerm(Al,d));
             Assert.assertTrue(mes + Al.getClass(),OperationsInterface.ContainsTerm(Al,h));
             Assert.assertTrue(mes + Al.getClass(),OperationsInterface.ContainsTerm(Al,k));
+            Assert.assertTrue(mes + Al.getClass(),OperationsInterface.ContainsTerm(Al,new Term("Z")));
         }
     }
 }

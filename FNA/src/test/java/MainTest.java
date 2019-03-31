@@ -7,8 +7,7 @@ public class MainTest
 {
     public static void main(String[] args)
     {
-
-        Result result= JUnitCore.runClasses(TestOperations.class);
+        Result result= JUnitCore.runClasses(TestOperations.class,TestOperationTime.class);
         if(result.wasSuccessful())
         {
             System.out.println("Tests was successful");

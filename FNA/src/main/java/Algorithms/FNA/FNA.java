@@ -46,6 +46,9 @@ public class FNA extends AlgorithmsAbs
     @Override
     public boolean Contains(Term t)
     {
-        return k1.remainder(Control.returnKey(t,model.TermDictionary)).equals(BigInteger.ZERO);
+        BigInteger key = Control.returnKey(t,model.TermDictionary);
+        if(key!=null)
+            return false;
+        return k1.remainder(key).equals(BigInteger.ZERO);
     }
 }
