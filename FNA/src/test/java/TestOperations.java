@@ -1,6 +1,8 @@
 import Algorithms.AlgorithmInterface;
+import Algorithms.BloomsFilter.BloomsFilter;
 import Algorithms.FNA.FNA;
 import Algorithms.Primitive.Primitive;
+import Algorithms.SortedList.SortedList;
 import Control.OperationsInterface;
 import Model.Document;
 import Model.Term;
@@ -24,9 +26,9 @@ public class TestOperations
         doc1 = new Document();
         doc1.AddAll(a,b,c,d,e,f,g,h,i,j,k,l);
         doc2 = new Document();
-        doc2.AddAll(a,b,c,m,n,o,p,r,q);
+        doc2.AddAll(a,b,c,q,p,m,n,o,r);
         Algorithms = new AlgorithmInterface[]
-                {new FNA(doc1, doc2),new Primitive(doc1,doc2)};
+                {new FNA(doc1, doc2),new Primitive(doc1,doc2),new BloomsFilter(doc1,doc2),new SortedList(doc1,doc2)};
     }
 
     @Test
@@ -76,7 +78,6 @@ public class TestOperations
             Assert.assertTrue(mes + Al.getClass(),list.contains(b));
             Assert.assertTrue(mes + Al.getClass(),list.contains(c));
         }
-
     }
 
     @Test

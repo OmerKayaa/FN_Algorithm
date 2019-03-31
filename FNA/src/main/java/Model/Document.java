@@ -32,6 +32,11 @@ public class Document implements Iterable<Term>
         }
     }
 
+    public boolean Exist(Term t)
+    {
+        return Terms.contains(t);
+    }
+
     public void SubTerm(Term term)
     {
         Terms.remove(term);

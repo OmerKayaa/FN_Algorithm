@@ -61,7 +61,7 @@ public class Primitive extends AlgorithmsAbs
         }
         for(Term t:doc2)
         {
-            if(list.contains(t))
+            if(Contains(t))
                 list.remove(t);
         }
         return list;

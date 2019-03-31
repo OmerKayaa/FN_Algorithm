@@ -14,7 +14,7 @@ public class MainTest
             System.out.println("Tests was successful");
             return;
         }
-        System.err.println("\n-Warning-");
+        System.err.println("\n\t\t\t-Warning-");
         for (Failure failure:result.getFailures())
         {
             System.out.println(failure.getMessage());

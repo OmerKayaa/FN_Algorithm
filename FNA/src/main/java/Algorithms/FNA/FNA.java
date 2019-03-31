@@ -22,7 +22,7 @@ public class FNA extends AlgorithmsAbs
     @Override
     public List<Term> IntersectDocuments()
     {
-        return Control.getTerms(Control.EuclideanGCD(k1,k2),model.TermDictionary);
+        return Control.getTerms(k1.gcd(k2),model.TermDictionary);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class FNA extends AlgorithmsAbs
     @Override
     public boolean Contains(Term t)
     {
-        return k1.divideAndRemainder(Control.returnKey(t,model.TermDictionary))[1].equals(BigInteger.ZERO);
+        return k1.remainder(Control.returnKey(t,model.TermDictionary)).equals(BigInteger.ZERO);
     }
 }

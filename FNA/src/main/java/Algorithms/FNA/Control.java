@@ -10,17 +10,10 @@ import java.util.Map;
 
 public class Control
 {
-    static BigInteger EuclideanGCD (BigInteger a, BigInteger b)
-    {
-        if (b.equals(BigInteger.ZERO))
-            return a;
-        else
-            return EuclideanGCD (b, a.divideAndRemainder(b)[1]);
-    }
 
     static BigInteger disjunct(BigInteger a, BigInteger b)
     {
-        BigInteger gcd = EuclideanGCD(a,b);
+        BigInteger gcd = a.gcd(b);
         a = a.divide(gcd);
         b = b.divide(gcd);
         return a.multiply(b);
@@ -28,12 +21,12 @@ public class Control
 
     static BigInteger add(BigInteger a,BigInteger b)
     {
-        return a.multiply(b).divide(EuclideanGCD(a,b));
+        return a.multiply(b).divide(a.gcd(b));
     }
 
     static BigInteger sub(BigInteger a,BigInteger b)
     {
-        return a.divide(EuclideanGCD(a,b));
+        return a.divide((a.gcd(b)));
     }
 
     /**
@@ -85,7 +78,7 @@ public class Control
         List<Term> result = new LinkedList<>();
         for (BigInteger keys: TermDictionary.keySet())
         {
-            if(key.divideAndRemainder(keys)[1].equals(BigInteger.ZERO))
+            if(key.remainder(keys).equals(BigInteger.ZERO))
             {
                 result.add(TermDictionary.get(keys));
             }
